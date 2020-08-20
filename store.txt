@@ -1,0 +1,1 @@
+[{"_id":1597888153955,"_name":"Jose","_dni":"12345","_lastName":"Alvarez","_email":"asd@asd.com","_password":"lola1234","_isAdmin":false},{"_id":1597888239138,"_name":"algo","_dni":"12345","_lastName":"nuevo","_email":"asd@asd.com","_password":"lola1234","_isAdmin":false}]

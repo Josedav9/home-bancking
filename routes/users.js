@@ -16,10 +16,24 @@ router.post("/", async (req, res) => {
     const newUser = new User(Date.now(), name, lastName, email, password, dni);
     users.push(newUser);
     store.appendFile(users);
-    res.json({ message: "Se creo exitosamente" });
+    res.status(200).json({ message: "Se creo exitosamente" });
   } catch (error) {
-    console.log(error);
-    res.status(400).json({ err: error });
+    res
+      .status(400)
+      .json({ err: "Verifique que los datos se enviaron correctamente" });
+  }
+});
+
+router.get("/login", (req, res) => {
+  const { email, password } = req.body;
+  console.log(users);
+  const loggedUser = users.find(
+    (user) => (user._email === email, user._password === password)
+  );
+  if (loggedUser) {
+    res.status(200).json({ user: loggedUser });
+  } else {
+    res.status(404).json({ err: "No se ha encontrado el usuario" });
   }
 });
 
